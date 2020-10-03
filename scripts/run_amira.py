@@ -85,9 +85,12 @@ def dataset_remove_label(label0id , label1id , sample_path , sample_labels , tra
         #print items
         for item in items:
             if len(item) > 0:
-                if int(item) == label1id:
+                item = int(item)
+                if item == label1id:
                     label = 1
-                else:
+                if item == label0id:
+                    label = 0
+                if item != label1id and item != label0id:
                     trans_ = trans_ + str(item) + " "
         trans_ = trans_ + "\n"
         label = str(label)+"\n"
